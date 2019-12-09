@@ -66,7 +66,7 @@ if [ $VM_EXISTS_CODE -eq 1 ]; then
   if [ "${NO_PROXY}" ]; then
     PROXY_ENV="$PROXY_ENV --engine-env NO_PROXY=$NO_PROXY"
   fi
-  "${DOCKER_MACHINE}" create -d virtualbox $PROXY_ENV "${VM}"
+  "${DOCKER_MACHINE}" create --virtualbox-no-vtx-check -d virtualbox $PROXY_ENV "${VM}"
 fi
 
 STEP="Checking status on $VM"
